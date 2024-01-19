@@ -1,0 +1,17 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-color-app-ingress
+spec:
+  rules:
+    - host: testcolorapp.mydomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: test-color-app-service
+                port:
+                  number: 5000
