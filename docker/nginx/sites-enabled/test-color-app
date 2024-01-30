@@ -1,0 +1,29 @@
+server {
+    listen 8080;
+    server_name localhost;
+
+    default_type  application/octet-stream;
+
+    access_log  /var/log/nginx/access.log  main;
+    access_log /dev/stdout;
+
+    keepalive_timeout  60;
+
+    server_tokens   off;
+    sendfile        on;
+    tcp_nopush      on;
+    gzip            on;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+
+    set $upstream_backend test-color-app:5000;
+
+    location / {
+        resolver 127.0.0.11 ipv6=off;
+        proxy_pass http://$upstream_backend;
+    }
+}
