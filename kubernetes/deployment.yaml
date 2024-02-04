@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-color-app-deployment
+  namespace: test-color-app
 spec:
   replicas: 2
   selector:

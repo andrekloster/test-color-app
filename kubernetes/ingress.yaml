@@ -3,6 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: test-color-app-ingress
+  namespace: test-color-app
 spec:
   rules:
     - host: testcolorapp.mydomain.com
