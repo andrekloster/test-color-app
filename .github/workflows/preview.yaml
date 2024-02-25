@@ -1,0 +1,29 @@
+name: Preview
+
+on: workflow_dispatch
+
+jobs:
+  prepare:
+    runs-on: self-hosted
+    name: Setup environment
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          ref: preview
+
+  build:
+    needs: prepare
+    runs-on: self-hosted
+    name: Build and push to registry
+    steps:
+      - name: Build and push to registry
+        run: nix-shell
+
+  test:
+    needs: build
+    runs-on: self-hosted
+    name: Test
+    steps:
+      - name: test
+        run: ls -lah ; cat .bumpverison.toml
