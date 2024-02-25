@@ -14,6 +14,7 @@ jobs:
     needs: prepare
     runs-on: self-hosted
     name: Build and push to registry
+    environment: Preview
     steps:
       - name: Build and push to registry
         env:
