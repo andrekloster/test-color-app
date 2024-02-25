@@ -23,11 +23,3 @@ jobs:
     steps:
       - name: Build and push to registry
         run: nix-shell
-
-  test:
-    needs: build
-    runs-on: self-hosted
-    name: Test
-    steps:
-      - name: test
-        run: ls -lah ; cat .bumpverison.toml
