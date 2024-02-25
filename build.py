@@ -45,7 +45,7 @@ def get_docker_client():
 # Function to bump the project version using the `bump-my-version` command.
 def bump_version(version_file):
     """Run the `bump-my-version` command to bump the project's version."""
-    command = ["bump-my-version", "bump", "patch", "--config-file", f"{version_file}"]
+    command = ["bump-my-version", "bump", "patch", "--config-file", f"{version_file}", "--allow-dirty"]
     subprocess.run(command)
 
 
@@ -168,9 +168,9 @@ def main():
     image_name = f"{registry_name}/{project_name}:{current_version}"
 
     # Build the Docker image, push it, and then remove it afterwards
-#    build_image(client, path, image_name)
-#    push_image(client, image_name)
-#    remove_image(client, image_name)
+    build_image(client, path, image_name)
+    push_image(client, image_name)
+    remove_image(client, image_name)
 
 
 if __name__ == "__main__":
