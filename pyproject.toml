@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "test-color-app"
+version = "0.1.0"
+description = ""
+authors = ["andrekloster"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+bump-my-version = "^0.17.4"
+docker = "^7.0.0"
+python = "^3.12"
+python-dotenv = "^1.0.1"
+toml = "^0.10.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
