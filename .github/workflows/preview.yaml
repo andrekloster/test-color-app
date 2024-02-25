@@ -9,8 +9,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-        with:
-          ref: preview
 
   build:
     needs: prepare
