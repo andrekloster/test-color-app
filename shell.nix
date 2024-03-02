@@ -10,7 +10,7 @@ pkgs.mkShell {
   shellHook = ''
     poetry env use 3.12
     poetry install --no-root
-    poetry run python build.py
+    poetry run python build.py -e $DEPLOYMENT_ENV -v $VERSION
     exit
   '';
 }

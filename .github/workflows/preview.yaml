@@ -15,7 +15,7 @@ jobs:
     runs-on: self-hosted
     name: Build and push to registry
     env:
-      VERSION_FILE: ${{ vars.VERSION_FILE }}
+      VERSION: ${{ github.run_id }}
       PROJECT_NAME: ${{ vars.PROJECT_NAME }}
       REGISTRY_USERNAME: ${{ vars.REGISTRY_USERNAME }}
       REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
