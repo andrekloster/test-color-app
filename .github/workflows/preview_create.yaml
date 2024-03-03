@@ -19,7 +19,7 @@ jobs:
     name: Build and push to registry
     env:
       DEPLOYMENT_ENV: "preview"
-      VERSION: ${{ github.run_id }}
+      VERSION: ${{ github.event.pull_request.number }}
       PROJECT_NAME: ${{ vars.PROJECT_NAME }}
       REGISTRY_USERNAME: ${{ vars.REGISTRY_USERNAME }}
       REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
