@@ -1,6 +1,7 @@
 import argparse
 import docker
 import os
+import random
 import subprocess
 import sys
 import toml
@@ -18,6 +19,11 @@ def bump_version(version_file):
     """Run the `bump-my-version` command to bump the project's version."""
     command = ["bump-my-version", "bump", "patch", "--config-file", f"{version_file}", "--allow-dirty"]
     subprocess.run(command)
+
+
+# Function to generate a random number within a specified range.    
+def generate_random_number(min_val=1, max_val=1000000):
+    return random.randint(min_val, max_val)
 
 
 # Function to read the current project version from a TOML configuration file.
@@ -134,7 +140,7 @@ def main():
         # Perform the version bumping
         bump_version(version)
     else:
-        current_version = get_current_version(version, is_production=False)
+        current_version = str(get_current_version(version, is_production=False)) + "." + str(generate_random_number())
     print(f"Current version: {current_version}")
 
     # Construct the URL for the Docker registry
