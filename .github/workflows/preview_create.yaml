@@ -1,6 +1,9 @@
-name: Preview
+name: Preview create
 
-on: workflow_dispatch
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   prepare:
