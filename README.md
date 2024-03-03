@@ -1,1 +1,1 @@
-# test-color-app
+# Test Color App
